@@ -1,0 +1,18 @@
+{
+    "version": 2,
+    "routes": [
+      {
+        "src": "/datas/(.*)",
+        "dest": "/datas/$1"
+      },
+      {
+        "src": "/public/character_parts/(.*)",
+        "dest": "/public/character_parts/$1"
+      },
+      {
+        "src": "/public/parts_icons/(.*)",
+        "dest": "/public/parts_icons/$1"
+      }
+    ]
+  }
+  

@@ -1,4 +1,4 @@
-// import configUtils from "../../../../components/character/configUtils.js";
+import configUtils from "../../character/configUtils.js";
 
 /**
  * Renders a list of parts for the selected part type

@@ -1,4 +1,4 @@
-// import configUtils from "../../../../components/character/configUtils.js";
+import configUtils from "../../character/configUtils.js";
 
 /**
  * Renders color options for each selected part in a type

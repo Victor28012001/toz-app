@@ -7,7 +7,7 @@ export function renderPartTypes(container, props) {
   container.innerHTML = ''; // Clear previous content
   container.className = "PartTypes";
 
-  const urlPrefix = `http://127.0.0.1:5502/public/parts_icons`;
+  const urlPrefix = `../../../public/parts_icons`;
 
   // Create side layout container
   const side = document.createElement("div");
