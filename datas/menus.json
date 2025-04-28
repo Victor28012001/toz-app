@@ -1,0 +1,369 @@
+{
+    "expandable-lists": {
+        "Assets": [
+            {
+                "title": "All",
+                "icon": "./assets/images/dragon_1.jpg",
+                "children": [
+                    {
+                        "name": "dragon_1",
+                        "categoty": "characters",
+                        "animations": [
+                            "walk",
+                            "run",
+                            "idle"
+                        ],
+                        "experience": {
+                            "name": "experience_1",
+                            "source": "game_1"
+                        },
+                        "imgLink": "./assets/images/dragon_1",
+                        "tier": "tier1",
+                        "worth": "200$JBKS"
+                    },
+                    {
+                        "name": "dragon_2",
+                        "categoty": "badge",
+                        "animations": [
+                            "walk",
+                            "run",
+                            "idle"
+                        ],
+                        "experience": {
+                            "name": "experience_1",
+                            "source": "game_1"
+                        },
+                        "imgLink": "./assets/images/dragon_1",
+                        "tier": "tier1",
+                        "worth": "450$JBKS"
+                    },
+                    {
+                        "name": "dragon_1",
+                        "categoty": "collectibles",
+                        "animations": [
+                            "walk",
+                            "run",
+                            "idle"
+                        ],
+                        "experience": {
+                            "name": "experience_1",
+                            "source": "game_1"
+                        },
+                        "imgLink": "./assets/images/dragon_1",
+                        "tier": "tier1",
+                        "worth": "340$JBKS"
+                    },
+                    {
+                        "name": "dragon_1",
+                        "categoty": "badge",
+                        "animations": [
+                            "walk",
+                            "run",
+                            "idle"
+                        ],
+                        "experience": {
+                            "name": "experience_1",
+                            "source": "game_1"
+                        },
+                        "imgLink": "./assets/images/dragon_1",
+                        "tier": "tier1",
+                        "worth": "540$JBKS"
+                    },
+                    {
+                        "name": "dragon_1",
+                        "categoty": "characters",
+                        "animations": [
+                            "walk",
+                            "run",
+                            "idle"
+                        ],
+                        "experience": {
+                            "name": "experience_1",
+                            "source": "game_1"
+                        },
+                        "imgLink": "./assets/images/dragon_1",
+                        "tier": "tier1",
+                        "worth": "40$JBKS"
+                    },
+                    {
+                        "name": "dragon_2",
+                        "categoty": "badge",
+                        "animations": [
+                            "walk",
+                            "run",
+                            "idle"
+                        ],
+                        "experience": {
+                            "name": "experience_1",
+                            "source": "game_1"
+                        },
+                        "imgLink": "./assets/images/dragon_1",
+                        "tier": "tier1",
+                        "worth": "405$JBKS"
+                    },
+                    {
+                        "name": "dragon_1",
+                        "categoty": "collectibles",
+                        "animations": [
+                            "walk",
+                            "run",
+                            "idle"
+                        ],
+                        "experience": {
+                            "name": "experience_1",
+                            "source": "game_1"
+                        },
+                        "imgLink": "./assets/images/dragon_1",
+                        "tier": "tier1",
+                        "worth": "400$JBKS"
+                    },
+                    {
+                        "name": "dragon_1",
+                        "categoty": "badge",
+                        "animations": [
+                            "walk",
+                            "run",
+                            "idle"
+                        ],
+                        "experience": {
+                            "name": "experience_1",
+                            "source": "game_1"
+                        },
+                        "imgLink": "./assets/images/dragon_1",
+                        "tier": "tier1",
+                        "worth": "320$JBKS"
+                    },
+                    {
+                        "name": "dragon_1",
+                        "categoty": "characters",
+                        "animations": [
+                            "walk",
+                            "run",
+                            "idle"
+                        ],
+                        "experience": {
+                            "name": "experience_1",
+                            "source": "game_1"
+                        },
+                        "imgLink": "./assets/images/dragon_1",
+                        "tier": "tier1",
+                        "worth": "230$JBKS"
+                    },
+                    {
+                        "name": "dragon_2",
+                        "categoty": "badge",
+                        "animations": [
+                            "walk",
+                            "run",
+                            "idle"
+                        ],
+                        "experience": {
+                            "name": "experience_1",
+                            "source": "game_1"
+                        },
+                        "imgLink": "./assets/images/dragon_1",
+                        "tier": "tier1",
+                        "worth": "1000$JBKS"
+                    },
+                    {
+                        "name": "dragon_1",
+                        "categoty": "collectibles",
+                        "animations": [
+                            "walk",
+                            "run",
+                            "idle"
+                        ],
+                        "experience": {
+                            "name": "experience_1",
+                            "source": "game_1"
+                        },
+                        "imgLink": "./assets/images/dragon_1",
+                        "tier": "tier1",
+                        "worth": "900$JBKS"
+                    },
+                    {
+                        "name": "dragon_1",
+                        "categoty": "badge",
+                        "animations": [
+                            "walk",
+                            "run",
+                            "idle"
+                        ],
+                        "experience": {
+                            "name": "experience_1",
+                            "source": "game_1"
+                        },
+                        "imgLink": "./assets/images/dragon_1",
+                        "tier": "tier1",
+                        "worth": "760$JBKS"
+                    }
+                ]
+            },
+            {
+                "title": "Juksbucks",
+                "icon": "./assets/images/dragon_1.jpg",
+                "children": 100
+            }
+        ],
+        "Characters": [
+            {
+                "name": "Characters_1",
+                "description": "An epic adventurer conqueror of russia.",
+                "imgLink": "./assets/images/dragon_2.jpg",
+                "tier": "tier1",
+                "animations": [
+                    "walk",
+                    "idle",
+                    "run"
+                ],
+                "worth": "200$JBKS",
+                "experience": {
+                    "name": "experience_1",
+                    "source": "game_1"
+                }
+            },
+            {
+                "name": "Characters_2",
+                "description": "An epic adventurer conqueror of russia.",
+                "imgLink": "./assets/images/dragon_2.jpg",
+                "tier": "tier1",
+                "animations": [
+                    "walk",
+                    "idle",
+                    "run"
+                ],
+                "worth": "200$JBKS",
+                "experience": {
+                    "name": "experience_1",
+                    "source": "game_1"
+                }
+            },
+            {
+                "name": "Characters_3",
+                "description": "An epic adventurer conqueror of russia.",
+                "imgLink": "./assets/images/dragon_2.jpg",
+                "tier": "tier1",
+                "animations": [
+                    "walk",
+                    "idle",
+                    "run"
+                ],
+                "worth": "200$JBKS",
+                "experience": {
+                    "name": "experience_1",
+                    "source": "game_1"
+                }
+            },
+            {
+                "name": "Characters_4",
+                "description": "An epic adventurer conqueror of russia.",
+                "imgLink": "./assets/images/dragon_2.jpg",
+                "tier": "tier1",
+                "animations": [
+                    "walk",
+                    "idle",
+                    "run"
+                ],
+                "worth": "200$JBKS",
+                "experience": {
+                    "name": "experience_1",
+                    "source": "game_1"
+                }
+            },
+            {
+                "name": "Characters_5",
+                "description": "An epic adventurer conqueror of russia.",
+                "imgLink": "./assets/images/dragon_2.jpg",
+                "tier": "tier1",
+                "animations": [
+                    "walk",
+                    "idle",
+                    "run"
+                ],
+                "worth": "200$JBKS",
+                "experience": {
+                    "name": "experience_1",
+                    "source": "game_1"
+                }
+            },
+            {
+                "name": "Characters_6",
+                "description": "An epic adventurer conqueror of russia.",
+                "imgLink": "./assets/images/dragon_2.jpg",
+                "tier": "tier1",
+                "animations": [
+                    "walk",
+                    "idle",
+                    "run"
+                ],
+                "worth": "200$JBKS",
+                "experience": {
+                    "name": "experience_1",
+                    "source": "game_1"
+                }
+            }
+        ],
+        "Messages": [
+            {
+                "sender": "friend_1",
+                "message": "An epic adventure where you battle mythical dragons and explore ancient kingdoms.",
+                "isFriend": true,
+                "time": "12:00pm"
+            },
+            {
+                "sender": "friend_2",
+                "message": "An epic adventure where you battle mythical dragons and explore ancient kingdoms.",
+                "isFriend": true,
+                "time": "12:00pm"
+            },
+            {
+                "sender": "friend_3",
+                "message": "An epic adventure where you battle mythical dragons and explore ancient kingdoms.",
+                "isFriend": true,
+                "time": "12:00pm"
+            },
+            {
+                "sender": "friend_4",
+                "message": "An epic adventure where you battle mythical dragons and explore ancient kingdoms.",
+                "isFriend": false,
+                "time": "12:00pm"
+            },
+            {
+                "sender": "friend_5",
+                "message": "An epic adventure where you battle mythical dragons and explore ancient kingdoms.",
+                "isFriend": false,
+                "time": "12:00pm"
+            }
+        ],
+        "LoresNQuests": [
+            {
+                "title": "Lore_1",
+                "description": "An epic adventure where you battle mythical dragons and explore ancient kingdoms.",
+                "bg": "./assets/images/dragon_4.jpg",
+                "achievement": "the first of his kind",
+                "views": 255
+            },
+            {
+                "title": "Lore_1",
+                "description": "An epic adventure where you battle mythical dragons and explore ancient kingdoms.",
+                "bg": "./assets/images/dragon_4.jpg",
+                "achievement": "the first of his kind",
+                "views": 255
+            },
+            {
+                "title": "Lore_1",
+                "description": "An epic adventure where you battle mythical dragons and explore ancient kingdoms.",
+                "bg": "./assets/images/dragon_4.jpg",
+                "achievement": "the first of his kind",
+                "views": 255
+            },
+            {
+                "title": "Lore_1",
+                "description": "An epic adventure where you battle mythical dragons and explore ancient kingdoms.",
+                "bg": "./assets/images/dragon_4.jpg",
+                "achievement": "the first of his kind",
+                "views": 255
+            }
+        ]
+    }
+}

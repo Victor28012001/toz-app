@@ -1,0 +1,147 @@
+{
+    "games": [
+        {
+            "name": "Dragon Quest",
+            "description": "An epic adventure where you battle mythical dragons and explore ancient kingdoms.",
+            "creator": "Mythic Games",
+            "creationDate": "2023-05-10",
+            "prize": "$5000",
+            "genre": "Adventure",
+            "imgLink": "./assets/images/dragon_1.jpg",
+            "rating": 4.5,
+            "platforms": [
+                "PC",
+                "PS5",
+                "Xbox"
+            ]
+        },
+        {
+            "name": "Dragon Wars",
+            "description": "A tactical battle game where players command dragon armies to conquer lands.",
+            "creator": "Firestorm Studios",
+            "creationDate": "2022-11-15",
+            "prize": "$7500",
+            "genre": "Strategy",
+            "imgLink": "./assets/images/dragon_2.jpg",
+            "rating": 4.7,
+            "platforms": [
+                "PC",
+                "PS4"
+            ]
+        },
+        {
+            "name": "Dragon Racer",
+            "description": "Race your dragon through a series of treacherous courses and win the crown.",
+            "creator": "RacerX Games",
+            "creationDate": "2024-01-30",
+            "prize": "$3000",
+            "genre": "Racing",
+            "imgLink": "./assets/images/dragon_3.jpg",
+            "rating": 4.2,
+            "platforms": [
+                "PC",
+                "Switch"
+            ]
+        },
+        {
+            "name": "Dragon Legends",
+            "description": "Embark on a journey to uncover the forgotten legends of ancient dragon kingdoms.",
+            "creator": "Legends Interactive",
+            "creationDate": "2022-08-25",
+            "prize": "$10000",
+            "genre": "RPG",
+            "imgLink": "./assets/images/dragon_4.jpg",
+            "rating": 4.8,
+            "platforms": [
+                "PC",
+                "PS5",
+                "Xbox"
+            ]
+        },
+        {
+            "name": "Dragon Hunter",
+            "description": "A thrilling action-packed game where you hunt down mythical dragons to claim their treasures.",
+            "creator": "Dragon Forge Studios",
+            "creationDate": "2023-04-05",
+            "prize": "$6000",
+            "genre": "Action",
+            "imgLink": "./assets/images/dragon_5.jpg",
+            "rating": 4.6,
+            "platforms": [
+                "PC",
+                "PS4"
+            ]
+        },
+        {
+            "name": "Dragon Knight",
+            "description": "Defend your kingdom from an army of dragons in this action-packed defense game.",
+            "creator": "Arcade Knights",
+            "creationDate": "2023-02-12",
+            "prize": "$4000",
+            "genre": "Tower Defense",
+            "imgLink": "./assets/images/dragon_6.jpg",
+            "rating": 4.3,
+            "platforms": [
+                "PC",
+                "Mobile"
+            ]
+        },
+        {
+            "name": "Dragon's Fury",
+            "description": "Engage in intense dragon battles where you use both strategy and speed to dominate.",
+            "creator": "Blaze Studios",
+            "creationDate": "2023-07-22",
+            "prize": "$5500",
+            "genre": "Fighting",
+            "imgLink": "./assets/images/dragon_7.jpg",
+            "rating": 4.4,
+            "platforms": [
+                "PC",
+                "Xbox"
+            ]
+        },
+        {
+            "name": "Dragon Escape",
+            "description": "A platformer where you must help a dragon escape from the traps set by evil wizards.",
+            "creator": "Skyward Games",
+            "creationDate": "2022-09-10",
+            "prize": "$2500",
+            "genre": "Platformer",
+            "imgLink": "./assets/images/dragon_8.jpg",
+            "rating": 4.1,
+            "platforms": [
+                "PC",
+                "Mobile"
+            ]
+        },
+        {
+            "name": "Dragon Arena",
+            "description": "Fight in the ultimate dragon arena where players can battle in teams or solo.",
+            "creator": "Arenas Games",
+            "creationDate": "2023-11-18",
+            "prize": "$8000",
+            "genre": "Multiplayer",
+            "imgLink": "./assets/images/dragon_9.jpg",
+            "rating": 4.9,
+            "platforms": [
+                "PC",
+                "PS5",
+                "Xbox"
+            ]
+        },
+        {
+            "name": "Dragon's Call",
+            "description": "An immersive RPG where you explore vast worlds and unlock the mysteries of the dragon's call.",
+            "creator": "Epic Quest Studios",
+            "creationDate": "2024-03-14",
+            "prize": "$9000",
+            "genre": "RPG",
+            "imgLink": "./assets/images/dragon_10.jpg",
+            "rating": 4.6,
+            "platforms": [
+                "PC",
+                "Switch"
+            ]
+        }
+    ]
+}

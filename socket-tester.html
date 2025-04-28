@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <title>🧪 Socket.IO Chat Tester (Optimized)</title>
+    <style>
+      body {
+        font-family: sans-serif;
+        padding: 20px;
+        background: #f7f7f7;
+      }
+      input,
+      select {
+        display: block;
+        margin-bottom: 10px;
+        padding: 8px;
+        width: 300px;
+      }
+      button {
+        margin-right: 10px;
+        margin-bottom: 10px;
+        padding: 6px 12px;
+        cursor: pointer;
+      }
+      #log,
+      #messages {
+        background: #eee;
+        padding: 10px;
+        margin-top: 20px;
+        white-space: pre-wrap;
+        max-height: 400px;
+        overflow-y: auto;
+      }
+      .message-item {
+        padding: 5px;
+        margin-bottom: 4px;
+        cursor: pointer;
+        border: 1px solid #ccc;
+      }
+      .message-item.selected {
+        background: #cce5ff;
+      }
+    </style>
+  </head>
+  <body>
+    <h2>🧪 Socket.IO Chat UI + Message Picker</h2>
+
+    <input id="playerId" placeholder="Player ID" />
+    <input id="recipientId" placeholder="Recipient ID (for private msg)" />
+    <input id="roomName" placeholder="Room Name (for create)" />
+    <input id="roomPassword" placeholder="🔐 Password (optional)" />
+    <input id="message" placeholder="Message Content" />
+    <input id="emoji" placeholder="Emoji (e.g., 😄)" /><br />
+
+    <select id="roomSelect">
+      <option value="">Select Room</option>
+    </select>
+
+    <select id="messageSelect">
+      <option value="">Select Message</option></select
+    ><br />
+
+    <button onclick="validateAnd(joinRoom)">Join Room</button>
+    <button onclick="validateAnd(createChatroom)">Create Chatroom</button>
+    <button onclick="validateAnd(sendRoomMessage)">Send Room Message</button>
+    <button onclick="validateAnd(pinSelectedMessage)">
+      Pin Selected Message
+    </button>
+    <button onclick="validateAnd(deleteChatroom)">Delete Chatroom</button>
+    <button onclick="validateAnd(typing)">Typing (Private)</button>
+    <button onclick="validateAnd(typingInRoom)">Typing (Room)</button>
+    <button onclick="validateAnd(markRoomAsRead)">Mark Room as Read</button>
+    <button onclick="validateAnd(sendPrivateMessage)">
+      Send Private Message
+    </button>
+    <button onclick="validateAnd(reactToSelectedMessage)">
+      React to Selected Msg
+    </button>
+
+    <h3>📥 Incoming Messages</h3>
+    <div id="messages"></div>
+
+    <h3>📜 Event Log</h3>
+    <pre id="log"></pre>
+
+    <script src="https://cdn.socket.io/4.7.2/socket.io.min.js"></script>
+    <script>
+      const socket = io("http://localhost:4000");
+
+      const $ = (id) => document.getElementById(id).value.trim();
+      const getEl = (id) => document.getElementById(id);
+
+      const log = (msg) => {
+        const logEl = getEl("log");
+        logEl.textContent += msg + "\n";
+        logEl.scrollTop = logEl.scrollHeight;
+      };
+
+      let selectedMessageId = null;
+      let selectedRoomId = null;
+
+      document.addEventListener("DOMContentLoaded", () => {
+        socket.emit("requestChatrooms");
+      });
+
+      function validateAnd(fn, requiredFields = []) {
+        if (!$("playerId")) return log("⚠️ Please provide Player ID");
+        for (const field of requiredFields) {
+          if (!$(field)) return log(`⚠️ Missing required field: ${field}`);
+        }
+        fn();
+      }
+
+      function updateRoomSelect(rooms) {
+        const roomSelect = getEl("roomSelect");
+        roomSelect.innerHTML = '<option value="">Select Room</option>';
+        rooms.forEach((room) => {
+          const option = document.createElement("option");
+          option.value = room.roomId || room.name;
+          option.textContent = room.roomId || room.name;
+          option.style.color = "black";
+          roomSelect.appendChild(option);
+        });
+
+        roomSelect.onchange = () => {
+          selectedRoomId = roomSelect.value;
+          console.log(selectedRoomId);
+          socket.emit("getRoomMessages", selectedRoomId);
+        };
+      }
+
+      function updateMessageSelect(messages) {
+        console.log(messages);
+        const messageSelect = getEl("messageSelect");
+        messageSelect.innerHTML = '<option value="">Select Message</option>';
+        messages.forEach((msg) => {
+          const option = document.createElement("option");
+          option.value = msg.id || msg._id;
+          option.textContent = msg.message || msg.text || "(no content)";
+          option.style.color = "black";
+          messageSelect.appendChild(option);
+        });
+
+        messageSelect.onchange = () => {
+          selectedMessageId = messageSelect.value;
+        };
+      }
+
+      function handleRoomMessages(roomId, messages) {
+        updateMessageSelect(messages);
+        log(`📝 Room ${roomId} messages updated.`);
+        const messagesDiv = getEl("messages");
+        messagesDiv.innerHTML = messages
+          .map(
+            (msg) =>
+              `<div class="message-item">${msg.sender || "?"}: ${
+                msg.message || msg.text || ""
+              }</div>`
+          )
+          .join("");
+      }
+
+      // Events
+      socket.on("connect", () => log("✅ Connected to server"));
+      socket.on("disconnect", () => log("❌ Disconnected"));
+      socket.on("chatroomError", (msg) => log(`🚫 Error: ${msg}`));
+      socket.on("chatroomsUpdated", updateRoomSelect);
+      socket.on("roomsList", updateRoomSelect);
+
+      socket.on("roomMessagesFetched", ({ roomId, messages }) => {
+        if (selectedRoomId === roomId) {
+          handleRoomMessages(roomId, messages);
+        }
+      });
+
+      socket.on("roomJoined", ({ roomId, messages }) => {
+        log(`🎉 Joined room: ${roomId}`);
+        handleRoomMessages(roomId, messages);
+      });
+
+      socket.on("roomMessage", (data) => {
+        log(`💬 ${data.sender}: ${data.message}`);
+      });
+
+      socket.onAny((event, data) => {
+        if (!["roomMessage", "privateMessage"].includes(event)) {
+          log(`📥 ${event}: ${JSON.stringify(data)}`);
+        }
+      });
+
+      // Emitters
+      function joinRoom() {
+        if (!selectedRoomId) return log("⚠️ No room selected.");
+        socket.emit("joinRoom", {
+          roomId: selectedRoomId,
+          userId: $("playerId"),
+        });
+        log(`🟢 joinRoom(${selectedRoomId})`);
+      }
+
+      function createChatroom() {
+        socket.emit("createChatroom", {
+          roomName: $("roomName"),
+          createdBy: $("playerId"),
+          password: $("roomPassword") || null,
+        });
+        log(`🏗️ createChatroom(${$("roomName")})`);
+      }
+
+      function sendRoomMessage() {
+        socket.emit("sendRoomMessage", {
+          roomId: selectedRoomId,
+          sender: $("playerId"),
+          message: $("message"),
+        });
+        log(`📤 sendRoomMessage(${$("message")})`);
+      }
+
+      function pinSelectedMessage() {
+        if (!selectedMessageId) return log("⚠️ No message selected");
+        socket.emit("pinMessage", {
+          roomId: selectedRoomId,
+          messageId: selectedMessageId,
+        });
+        log(`📌 pinMessage(${selectedMessageId})`);
+      }
+
+      function deleteChatroom() {
+        if (!selectedRoomId) return log("⚠️ No room selected");
+        socket.emit("deleteChatroom", {
+          roomName: selectedRoomId,
+          requestedBy: $("playerId"),
+        });
+        log(`🗑️ deleteChatroom(${selectedRoomId})`);
+      }
+
+      function sendPrivateMessage() {
+        socket.emit("sendPrivateMessage", {
+          to: $("recipientId"),
+          from: $("playerId"),
+          message: $("message"),
+        });
+        log(`📩 sendPrivateMessage(${$("message")})`);
+      }
+
+      function reactToSelectedMessage() {
+        if (!selectedMessageId) return log("⚠️ No message selected");
+        socket.emit("reactToRoomMessage", {
+          messageId: selectedMessageId,
+          emoji: $("emoji"),
+          userId: $("playerId"),
+        });
+        log(`😊 reactToRoomMessage(${$("emoji")}) on ${selectedMessageId}`);
+      }
+
+      function typing() {
+        socket.emit("typing", {
+          to: $("recipientId"),
+          from: $("playerId"),
+        });
+        log("✍️ typing (private)");
+      }
+
+      function typingInRoom() {
+        socket.emit("typingInRoom", {
+          roomId: selectedRoomId,
+          userId: $("playerId"),
+        });
+        log("✍️ typingInRoom");
+      }
+
+      function markRoomAsRead() {
+        socket.emit("markRoomAsRead", {
+          roomId: selectedRoomId,
+          userId: $("playerId"),
+        });
+        log("✅ markRoomAsRead");
+      }
+
+      // Initial room request
+      socket.emit("getRooms");
+    </script>
+  </body>
+</html>
