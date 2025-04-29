@@ -77,7 +77,7 @@ function renderCreateProfileForm(container, publicKey) {
           <span>Avatar Upload</span>
           <input type="file" id="avatar" accept="image/*" />
           <label for="avatar">
-            <img id="avatarPreview" src=".../assets/images/favicon.png" alt="Preview" />
+            <img id="avatarPreview" src="assets/images/favicon.png" alt="Preview" />
           </label>
         </div>
 
