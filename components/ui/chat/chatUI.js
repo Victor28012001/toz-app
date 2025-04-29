@@ -8,9 +8,17 @@ import { joinChatroom, markPrivateMessagesAsRead } from "../../chat/Chat.js";
 import { getState } from "../../../utils/state.js";
 import { distanceInWordsToNow } from "../../../utils/distanceInWordsToNow.js";
 
-const { _id: playerId } = getState().user;
+let playerId;
+let userAvatar
+if(getState().user === null || getState().user === undefined) {
+  playerId = JSON.parse(localStorage.getItem("user"));
+}else {
+  playerId = getState().user_id;
+  userAvatar = getState().user.avatarUrl || "default_avatar.png"; // Fallback to default avatar
+}
+
+
 let currentChatUserId = null;
-const userAvatar = getState().user.avatarUrl || "default_avatar.png"; // Fallback to default avatar
 
 // DOM Helpers
 const getMessagesEl = () => document.getElementById("messages");
@@ -18,7 +26,7 @@ const getRecentChatsEl = () => document.getElementById("recent-chats");
 const getRecentMessagesEl = () => document.getElementById("recent-messages");
 
 // Join personal room on load
-joinChatroom(playerId);
+// joinChatroom({playerId});
 
 // Initialize Chat
 export function init() {

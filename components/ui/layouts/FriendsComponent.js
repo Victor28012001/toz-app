@@ -7,7 +7,11 @@ let playerId = null; // this should be set when the player logs in or joins
 let msgInput, messagesEl;
 
 export function createFriendsComponent(containerId, _playerId) {
-  playerId = getState().user._id;
+  if (getState().user === null || getState().user === undefined) {
+    playerId = JSON.parse(localStorage.getItem("user"));
+  } else {
+    playerId = getState().user._id;
+  }
 
   const container = document.getElementById(containerId);
   if (!container) return;
@@ -94,5 +98,4 @@ export function createFriendsComponent(containerId, _playerId) {
 
   init();
   setupListeners(playerId);
-
 }

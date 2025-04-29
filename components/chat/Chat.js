@@ -11,9 +11,10 @@ export const createChatroom = (roomName, createdBy) => {
   socket.emit('createChatroom', { roomName, createdBy });
 };
 
-export const joinChatroom = (roomName) => {
-  socket.emit('joinChatroom', roomName);
+export const joinChatroom = (roomName, password = "") => {
+  socket.emit("joinChatroom", { roomName, password });
 };
+
 
 export const sendRoomMessage = (roomId, sender, message) => {
   socket.emit('sendRoomMessage', { roomId, sender, message });
