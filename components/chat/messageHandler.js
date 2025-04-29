@@ -1,5 +1,5 @@
 // src/chat/messageHandler.js
-const API_BASE_URL = "http://localhost:4000"; // Your backend base URL
+const API_BASE_URL = "https://toz-api.onrender.com"; // Your backend base URL
 
 export async function fetchRecentMessages(playerId) {
   const res = await fetch(`${API_BASE_URL}/messages/recent/${playerId}`);

@@ -1,6 +1,6 @@
 // api.js
 
-const BASE_URL = "http://localhost:4000/api"; // change to your real API base URL
+const BASE_URL = "https://toz-api.onrender.com/api"; // change to your real API base URL
 
 const apiClient = axios.create({
   baseURL: BASE_URL,
