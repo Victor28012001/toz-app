@@ -5,7 +5,7 @@
  */
 export function createPartLayer(image) {
   // const urlPrefix = `${process.env.PUBLIC_URL || '.'}/character_parts`;
-  const urlPrefix = `../../../public/character_parts`;
+  const urlPrefix = `../../../character_parts`;
   const layer = document.createElement('div');
   layer.className = 'Layer';
   layer.style.zIndex = image.zIndex;
