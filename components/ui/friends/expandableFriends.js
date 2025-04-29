@@ -8,7 +8,12 @@ import { getState } from "../../../utils/state.js";
 import { openChat } from "../chat/chatUI.js";
 
 export async function createExpandableFriendsTabs() {
-  const playerId = getState().user._id;
+  let playerId = null; // this should be set when the player logs in or joins
+  if (getState().user === null || getState().user === undefined) {
+    playerId = JSON.parse(localStorage.getItem("user"));
+  } else {
+    playerId = getState().user._id;
+  }
 
   const container = document.createElement("section");
   container.className = "Friend-tabs";

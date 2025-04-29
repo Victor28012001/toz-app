@@ -3,7 +3,12 @@ import { getState } from "../../../utils/state.js";
 import { reactToRoomMessage } from "../../chat/Chat.js";
 
 export async function createExpandableChatRoomsTabs() {
-  const { _id: playerId } = getState().user;
+  let playerId = null; // this should be set when the player logs in or joins
+  if (getState().user === null || getState().user === undefined) {
+    playerId = JSON.parse(localStorage.getItem("user"));
+  } else {
+    playerId = getState().user._id;
+  }
   let selectedRoomId = null;
 
   // Create elements
