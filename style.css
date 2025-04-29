@@ -35,7 +35,7 @@ body::before {
   height: 90%;
   transform: translateX(-50%);
   content: "";
-  background-image: url(./pubic/assets/images/bg.png);
+  background-image: url(./assets/images/bg.png);
   background-size: 100%;
   background-repeat: no-repeat;
   background-position: top center;
@@ -182,7 +182,7 @@ body::before {
 }
 
 .banner .content .model {
-  background-image: url(./pubic/assets/images/model.png);
+  background-image: url(./assets/images/model.png);
   width: 40%;
   height: 75vh;
   position: absolute;
